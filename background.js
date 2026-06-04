@@ -1,3 +1,8 @@
+// ExtPay - Payment integration
+importScripts('ExtPay.js');
+const extpay = ExtPay('clipvault');
+extpay.startBackground();
+
 // ClipVault - Background Service Worker
 const DEFAULTS = {
   maxItems: 200,
@@ -36,27 +41,111 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     case 'SAVE_CLIP':
       saveClip(request.text, request.source).then(sendResponse);
       return true;
+  case 'GET_PAID_STATUS':
+    extpay.getUser().then(sendResponse);
+    return true;
+  case 'OPEN_PAYMENT':
+    extpay.openPaymentPage();
+    sendResponse({ success: true });
+    return false;
+  case 'OPEN_LOGIN':
+    extpay.openLoginPage();
+    sendResponse({ success: true });
+    return false;
+
     case 'GET_CLIPS':
       getClips(request.query).then(sendResponse);
       return true;
+  case 'GET_PAID_STATUS':
+    extpay.getUser().then(sendResponse);
+    return true;
+  case 'OPEN_PAYMENT':
+    extpay.openPaymentPage();
+    sendResponse({ success: true });
+    return false;
+  case 'OPEN_LOGIN':
+    extpay.openLoginPage();
+    sendResponse({ success: true });
+    return false;
+
     case 'DELETE_CLIP':
       deleteClip(request.id).then(sendResponse);
       return true;
+  case 'GET_PAID_STATUS':
+    extpay.getUser().then(sendResponse);
+    return true;
+  case 'OPEN_PAYMENT':
+    extpay.openPaymentPage();
+    sendResponse({ success: true });
+    return false;
+  case 'OPEN_LOGIN':
+    extpay.openLoginPage();
+    sendResponse({ success: true });
+    return false;
+
     case 'PIN_CLIP':
       pinClip(request.id).then(sendResponse);
       return true;
+  case 'GET_PAID_STATUS':
+    extpay.getUser().then(sendResponse);
+    return true;
+  case 'OPEN_PAYMENT':
+    extpay.openPaymentPage();
+    sendResponse({ success: true });
+    return false;
+  case 'OPEN_LOGIN':
+    extpay.openLoginPage();
+    sendResponse({ success: true });
+    return false;
+
     case 'CLEAR_ALL':
       clearAll().then(sendResponse);
       return true;
+  case 'GET_PAID_STATUS':
+    extpay.getUser().then(sendResponse);
+    return true;
+  case 'OPEN_PAYMENT':
+    extpay.openPaymentPage();
+    sendResponse({ success: true });
+    return false;
+  case 'OPEN_LOGIN':
+    extpay.openLoginPage();
+    sendResponse({ success: true });
+    return false;
+
     case 'GET_SETTINGS':
       chrome.storage.sync.get('settings').then(sendResponse);
       return true;
+  case 'GET_PAID_STATUS':
+    extpay.getUser().then(sendResponse);
+    return true;
+  case 'OPEN_PAYMENT':
+    extpay.openPaymentPage();
+    sendResponse({ success: true });
+    return false;
+  case 'OPEN_LOGIN':
+    extpay.openLoginPage();
+    sendResponse({ success: true });
+    return false;
+
     case 'SAVE_SETTINGS':
       chrome.storage.sync.set({ settings: request.settings }).then(() => sendResponse({ success: true }));
       return true;
     case 'GET_STATS':
       getStats().then(sendResponse);
       return true;
+  case 'GET_PAID_STATUS':
+    extpay.getUser().then(sendResponse);
+    return true;
+  case 'OPEN_PAYMENT':
+    extpay.openPaymentPage();
+    sendResponse({ success: true });
+    return false;
+  case 'OPEN_LOGIN':
+    extpay.openLoginPage();
+    sendResponse({ success: true });
+    return false;
+
   }
 });
 

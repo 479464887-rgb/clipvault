@@ -4,11 +4,18 @@
   "version": "1.0.0",
   "description": "智能剪贴板管理器 — 记录/搜索/收藏剪贴历史，效率翻倍",
   "homepage_url": "https://479464887-rgb.github.io/clipvault/",
-  "author": {"email": "tulv202900@163.com"},
-  "permissions": ["storage", "contextMenus", "clipboardWrite", "clipboardRead", "commands"],
+  "author": {
+    "email": "tulv202900@163.com"
+  },
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "clipboardWrite",
+    "clipboardRead",
+    "commands"
+  ],
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup.html",
