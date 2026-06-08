@@ -1,27 +1,23 @@
-# ClipVault
+# Clipvault — Chrome Extension
 
-Smart clipboard manager with search and history
+Smart clipboard manager. Save, search, and organize your clipboard history.
 
 ## Features
 
-- Works on all websites
-- Dark theme (GitHub Dark style)
-- Keyboard shortcuts support
-- Privacy-focused: data stays local
+- 🔹 ClipVault - Popup
+- 🔹 ===== Init =====
+- 🔹 ===== Load & Render =====
+- 🔹 ===== Helpers =====
 
 ## Pricing
 
-**$9.99 lifetime** — One-time purchase, lifetime access.
-
-## Install
-
-Available on Chrome Web Store (coming soon).
+- **Free**: Basic features with daily limits
+- **Pro**: Subscription via ExtPay — unlock unlimited usage
 
 ## Privacy
 
-This extension does not collect, store, or transmit any personal data.
-See [Privacy Policy](https://479464887-rgb.github.io/clipvault/privacy.html).
+Local-first processing. No data uploaded to our servers. [Privacy Policy](https://479464887-rgb.github.io/clipvault/privacy.html)
 
-## License
+## Install
 
-MIT
+1. Clone repo →  → Developer mode → Load unpacked
