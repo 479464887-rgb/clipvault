@@ -1,5 +1,6 @@
 {
   "manifest_version": 3,
+  "minimum_chrome_version": "88",
   "name": "ClipVault",
   "version": "1.0.0",
   "description": "智能剪贴板管理器 — 记录/搜索/收藏剪贴历史，效率翻倍",
