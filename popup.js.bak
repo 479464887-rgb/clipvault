@@ -24,16 +24,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (text.trim()) {
         await chrome.runtime.sendMessage({ type: 'SAVE_CLIP', text: text.trim(), source: 'clipboard' });
         await loadClips();
-        showTooltip('btn-paste', 'Saved!');
+        showTooltip('btn-paste', '已保存!');
       }
     } catch (e) {
-      showTooltip('btn-paste', 'Cannot read clipboard');
+      showTooltip('btn-paste', '无法读取剪贴板');
     }
   });
 
   // Manual Add button
   document.getElementById('btn-add').addEventListener('click', () => {
-    const text = prompt('Enter text to save:');
+    const text = prompt('输入要保存的内容：');
     if (text?.trim()) {
       chrome.runtime.sendMessage({ type: 'SAVE_CLIP', text: text.trim(), source: 'manual' }).then(async () => {
         await loadClips();
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Clear all
   document.getElementById('btn-clear').addEventListener('click', async (e) => {
     e.preventDefault();
-    if (confirm('Delete all clipboard records? This cannot be undone.')) {
+    if (confirm('确认删除所有剪贴记录？此操作不可恢复。')) {
       await chrome.runtime.sendMessage({ type: 'CLEAR_ALL' });
       await loadClips();
     }
@@ -78,8 +78,8 @@ function render() {
     list.innerHTML = `
       <div class="empty">
         <div class="emoji">📋</div>
-        <p>No clipboard records</p>
-        <p style="font-size:11px;color:#484f58;margin-top:4px">Select text and right-click, or click "Paste & Save"</p>
+        <p>暂无剪贴记录</p>
+        <p style="font-size:11px;color:#484f58;margin-top:4px">选中文字右键保存，或点击"粘贴保存"</p>
       </div>`;
     return;
   }
@@ -94,7 +94,7 @@ function render() {
           <div class="clip-meta">
             <span>${c.source === 'selection' ? '✂️' : c.source === 'clipboard' ? '📋' : '✏️'}</span>
             <span>${time}</span>
-            <span>${c.length}ch</span>
+            <span>${c.length}字</span>
           </div>
           <div style="display:flex;gap:8px">
             <span class="clip-pin${pinned}" data-action="pin" data-id="${c.id}">${pinIcon}</span>
@@ -114,7 +114,7 @@ function render() {
       const clip = clips.find(c => c.id === id);
       if (clip) {
         await navigator.clipboard.writeText(clip.text);
-        showTooltip(el, 'Copied!');
+        showTooltip(el, '已复制!');
       }
     });
   });
@@ -142,7 +142,7 @@ function render() {
 
 async function updateStats() {
   const resp = await chrome.runtime.sendMessage({ type: 'GET_STATS' });
-  stats.textContent = `${resp.total} records · ${resp.pinned} pinned`;
+  stats.textContent = `${resp.total} 条记录 · ${resp.pinned} 条置顶`;
 }
 
 // ===== Helpers =====
@@ -150,9 +150,9 @@ function formatTime(ts) {
   const d = new Date(ts);
   const now = new Date();
   const diff = now - d;
-  if (diff < 60000) return 'just now';
-  if (diff < 3600000) return `${Math.floor(diff / 60000)} minutes ago`;
-  if (diff < 86400000) return `${Math.floor(diff / 3600000)} hours ago`;
+  if (diff < 60000) return '刚刚';
+  if (diff < 3600000) return `${Math.floor(diff / 60000)}分钟前`;
+  if (diff < 86400000) return `${Math.floor(diff / 3600000)}小时前`;
   return `${d.getMonth() + 1}/${d.getDate()}`;
 }
 

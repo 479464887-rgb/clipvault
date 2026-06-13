@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ClipVault · Settings</title>
+<title>ClipVault · 设置</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:14px;color:#c9d1d9;background:#0d1117;max-width:500px;margin:40px auto;padding:0 20px}
@@ -27,34 +27,34 @@ h1{font-size:22px;color:#58a6ff;margin-bottom:8px}
 </style>
 </head>
 <body>
-<h1>📋 ClipVault Settings</h1>
-<p class="subtitle">Manage clipboard history & preferences</p>
+<h1>📋 ClipVault 设置</h1>
+<p class="subtitle">管理剪贴板历史与偏好</p>
 
 <div class="card">
-  <h2>📊 Statistics</h2>
+  <h2>📊 统计</h2>
   <div class="stat-grid">
-    <div class="stat-item"><div class="stat-value" id="stat-total">-</div><div class="stat-label">Total Items</div></div>
-    <div class="stat-item"><div class="stat-value" id="stat-pinned">-</div><div class="stat-label">Pinned</div></div>
-    <div class="stat-item"><div class="stat-value" id="stat-avg">-</div><div class="stat-label">Avg. Length</div></div>
+    <div class="stat-item"><div class="stat-value" id="stat-total">-</div><div class="stat-label">总记录数</div></div>
+    <div class="stat-item"><div class="stat-value" id="stat-pinned">-</div><div class="stat-label">已置顶</div></div>
+    <div class="stat-item"><div class="stat-value" id="stat-avg">-</div><div class="stat-label">平均字数</div></div>
   </div>
 </div>
 
 <div class="card">
-  <h2>Storage Settings</h2>
+  <h2>存储设置</h2>
   <div class="field">
-    <label>Max stored items</label>
-    <div class="hint">Oldest items auto-deleted when exceeded</div>
+    <label>最大保存条数</label>
+    <div class="hint">超出后自动删除最早的记录</div>
     <input type="number" id="max-items" min="50" max="1000" step="50">
   </div>
   <div class="field">
-    <label>Auto-clean (days)</label>
-    <div class="hint">Items older than specified days are auto-deleted. 0 = never</div>
+    <label>自动清理 (天)</label>
+    <div class="hint">超过指定天数的记录自动删除。0 = 永不清理</div>
     <input type="number" id="auto-clean" min="0" max="365" value="30">
   </div>
 </div>
 
 <div class="card">
-  <button class="btn" id="save">SaveSettings</button>
+  <button class="btn" id="save">保存设置</button>
   <span id="status"></span>
 </div>
 

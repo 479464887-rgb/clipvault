@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -43,19 +43,19 @@ footer a{color:#58a6ff;text-decoration:none}
 <header>
   <h1>📋 ClipVault</h1>
   <span class="badge">BETA</span>
-  <input type="text" id="search" placeholder="Search clipboard...">
+  <input type="text" id="search" placeholder="搜索剪贴记录...">
 </header>
 
 <div class="actions">
-  <button class="btn btn-primary" id="btn-paste">📥 Paste & Save</button>
-  <button class="btn" id="btn-add">➕ Add Manually</button>
+  <button class="btn btn-primary" id="btn-paste">📥 粘贴保存</button>
+  <button class="btn" id="btn-add">➕ 手动添加</button>
 </div>
 
 <div id="clip-list"></div>
 
 <footer>
   <span id="stats"></span>
-  <a href="#" id="btn-clear">Clear All</a>
+  <a href="#" id="btn-clear">清空全部</a>
   <a href="#" id="btn-settings">⚙️</a>
 </footer>
 
